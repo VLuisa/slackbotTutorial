@@ -7,7 +7,7 @@ import botkit from 'botkit';
 
 console.log('Heeeeere we go....');
 
-const SLACKBOT_TOKEN = 'Put your token here!';
+const SLACKBOT_TOKEN = 'xoxb-59573643749-DHsw00UUi7YeNoywp4atubKU';
 
 // botkit controller
 const controller = botkit.slackbot({
@@ -33,6 +33,11 @@ controller.hears(['hello', 'hi', 'hey', 'heyo', 'hola'],
       bot.reply(message, 'Hello there!');
     }
   });
+});
+
+controller.hears(['Hey Archie'], ['direct_message', 'direct_mention', 'mention'], (bot, message) => {
+  bot.reply(message, 'DON\'T CALL ME ARCHIE!');
+  bot.reply(message, 'Ahem, mm, sorry, I would prefer if you do not address me in that manner');
 });
 
 // another response -- type 'sing me a song', see what bot says!
